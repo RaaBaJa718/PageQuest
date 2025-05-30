@@ -1,5 +1,12 @@
 import Book from '../models/Book.js';
 import User from '../models/User.js';
+import { signToken } from '../services/auth.js';
+
+interface AddUserArgs {
+  username: string;
+  email: string;
+  password: string;
+}
 
 const resolvers = {
   Query: {
@@ -13,8 +20,11 @@ const resolvers = {
   Mutation: {
     addBook: async (_: any, { title, author }: { title: string; author: string }) =>
       Book.create({ title, author }),
-    addUser: async (_: any, { username, email }: { username: string; email: string }) =>
-      User.create({ username, email }),
+    addUser: async (_parent: any, { username, email, password }: AddUserArgs) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user.username, user.email, user._id);
+      return { token, user };
+    },
   },
 };
 

@@ -6,7 +6,7 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs } from './graphql/typeDefs.js';
 import resolvers from './graphql/resolvers.js';
-import { getUserFromToken } from './services/auth';
+import { getUserFromToken } from './services/auth.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;

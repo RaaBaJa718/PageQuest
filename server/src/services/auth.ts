@@ -37,3 +37,14 @@ export const signToken = (username: string, email: string, _id: unknown) => {
 
   return jwt.sign(payload, secretKey, { expiresIn: '1h' });
 };
+
+export const getUserFromToken = (authHeader?: string) => {
+  if (!authHeader) return null;
+  const token = authHeader.split(' ')[1];
+  const secretKey = process.env.JWT_SECRET_KEY || '';
+  try {
+    return jwt.verify(token, secretKey) as JwtPayload;
+  } catch {
+    return null;
+  }
+};

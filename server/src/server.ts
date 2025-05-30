@@ -4,8 +4,8 @@ import db from './config/connection.js';
 import routes from './routes/index.js';
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { typeDefs } from './graphql/typeDefs';
-import resolvers from './graphql/resolvers';
+import { typeDefs } from './graphql/typeDefs.js';
+import resolvers from './graphql/resolvers.js';
 import { getUserFromToken } from './services/auth';
 
 const app = express();

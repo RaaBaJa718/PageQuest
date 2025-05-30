@@ -1,5 +1,5 @@
-import Book from '../models/Book';
-import User from '../models/User';
+import Book from '../models/Book.js';
+import User from '../models/User.js';
 
 const resolvers = {
   Query: {

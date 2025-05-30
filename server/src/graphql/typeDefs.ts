@@ -13,6 +13,11 @@ export const typeDefs = gql`
     email: String!
   }
 
+  type AuthPayload {
+    user: User
+    token: String
+  }
+
   type Query {
     me: User
     books: [Book!]!
@@ -21,6 +26,6 @@ export const typeDefs = gql`
 
   type Mutation {
     addBook(title: String!, author: String!): Book!
-    addUser(username: String!, email: String!): User!
+    addUser(username: String!, email: String!, password: String!): AuthPayload!
   }
 `;

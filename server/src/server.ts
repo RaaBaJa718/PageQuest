@@ -10,7 +10,6 @@ import resolvers from './graphql/resolvers.js';
 import { getUserFromToken } from './services/auth.js';
 
 const app = express();
-const PORT = process.env.PORT || 3001;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

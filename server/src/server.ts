@@ -8,11 +8,17 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs } from './graphql/typeDefs.js';
 import resolvers from './graphql/resolvers.js';
 import { getUserFromToken } from './services/auth.js';
+import cors from 'cors';
 
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+app.use(cors({
+  origin: 'https://pagequest-1.onrender.com', // your frontend Render URL
+  credentials: true,
+}));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

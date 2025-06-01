@@ -7,11 +7,20 @@ export const typeDefs = gql`
     author: String!
   }
 
+  type SavedBook {
+    bookId: String!
+    title: String!
+    authors: [String]
+    description: String
+    image: String
+    link: String
+  }
+
   type User {
     id: ID!
     username: String!
     email: String!
-    savedBooks: [Book!]!
+    savedBooks: [SavedBook!]!
     bookCount: Int!
   }
 

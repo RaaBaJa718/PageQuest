@@ -11,6 +11,8 @@ export const typeDefs = gql`
     id: ID!
     username: String!
     email: String!
+    savedBooks: [Book!]!
+    bookCount: Int!
   }
 
   type AuthPayload {

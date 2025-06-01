@@ -37,6 +37,16 @@ const resolvers = {
       const token = signToken(user.username, user.email, user._id);
       return { token, user };
     },
+    saveBook: async (_parent: any, { bookData }: { bookData: any }, context: any) => {
+      if (!context.user) throw new Error('Not authenticated');
+      // Add the book to savedBooks if it doesn't already exist
+      const updatedUser = await User.findByIdAndUpdate(
+        context.user._id,
+        { $addToSet: { savedBooks: bookData } },
+        { new: true }
+      );
+      return updatedUser;
+    },
   },
 };
 

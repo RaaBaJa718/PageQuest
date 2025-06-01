@@ -42,5 +42,3 @@ db.once('open', async () => {
 
   console.log(`🚀  Server ready at ${url}`);
 });
-
-app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));

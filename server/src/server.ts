@@ -25,21 +25,22 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(routes);
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+// Connect to MongoDB before starting Apollo Server
+db.once('open', async () => {
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
 
-startStandaloneServer(server, {
-  listen: { port: 4000 },
-  context: async ({ req }) => {
-    const user = getUserFromToken(req.headers.authorization);
-    return { user };
-  },
-}).then(({ url }) => {
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: process.env.PORT ? Number(process.env.PORT) : 4000 },
+    context: async ({ req }) => {
+      const user = getUserFromToken(req.headers.authorization);
+      return { user };
+    },
+  });
+
   console.log(`🚀  Server ready at ${url}`);
 });
 
-db.once('open', () => {
-  app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
-});
+app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));

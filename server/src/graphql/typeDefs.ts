@@ -26,9 +26,20 @@ export const typeDefs = gql`
     users: [User!]!
   }
 
+  input BookInput {
+    bookId: String!
+    title: String!
+    authors: [String]
+    description: String
+    image: String
+    link: String
+  }
+
   type Mutation {
     addBook(title: String!, author: String!): Book!
     addUser(username: String!, email: String!, password: String!): AuthPayload!
     login(email: String!, password: String!): AuthPayload!
+    saveBook(bookData: BookInput!): User!
+    # ...other mutations
   }
 `;

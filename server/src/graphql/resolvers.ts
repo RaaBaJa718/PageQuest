@@ -47,6 +47,15 @@ const resolvers = {
       );
       return updatedUser;
     },
+    removeBook: async (_parent: any, { bookId }: { bookId: string }, context: any) => {
+      if (!context.user) throw new Error('Not authenticated');
+      const updatedUser = await User.findByIdAndUpdate(
+        context.user._id,
+        { $pull: { savedBooks: { bookId } } },
+        { new: true }
+      );
+      return updatedUser;
+    },
   },
 };
 

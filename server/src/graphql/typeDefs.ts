@@ -49,6 +49,7 @@ export const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): AuthPayload!
     login(email: String!, password: String!): AuthPayload!
     saveBook(bookData: BookInput!): User!
+    removeBook(bookId: String!): User!
     # ...other mutations
   }
 `;

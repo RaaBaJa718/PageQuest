@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-PageQuest-blue?style=for-the-badge&logo=render)](https://pagequest.onrender.com)
+[![Live Site](https://img.shields.io/badge/Live%20Site-PageQuest-blue?style=for-the-badge&logo=render)](https://pagequest-1.onrender.com)
 
 PageQuest is a full-stack MERN application that allows users to search for books, save their favorites, and manage their personal reading list. The app leverages the Google Books API for searching and MongoDB Atlas for storing user data and saved books.
 
@@ -26,6 +26,13 @@ PageQuest is a full-stack MERN application that allows users to search for books
 - **Deployment:** Render
 
 ---
+
+Screeshots
+
+![Screenshot 2025-06-01 181802](https://github.com/user-attachments/assets/ce99c739-11c7-41cb-9762-fc9813b90310)
+![Screenshot 2025-06-01 181813](https://github.com/user-attachments/assets/dd4387d3-40cd-4842-aa39-b8387d27ad7f)
+![Screenshot 2025-06-01 181840](https://github.com/user-attachments/assets/cd60ae60-fd5e-492c-9618-c354f5a76fcf)
+![Screenshot 2025-06-01 182700](https://github.com/user-attachments/assets/b4f30893-398a-4142-a318-c0d1ddcde8e1)
 
 ## 📦 Installation
 

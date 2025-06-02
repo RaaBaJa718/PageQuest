@@ -1,15 +1,21 @@
 import { Schema, model, type Document } from 'mongoose';
 
 export interface BookDocument extends Document {
+  bookId: string;
   title: string;
-  author: string;
-  // ...other fields...
+  authors: string[];
+  description: string;
+  image: string;
+  link: string;
 }
 
 export const bookSchema = new Schema<BookDocument>({
+  bookId: { type: String, required: true }, // <-- required!
   title: { type: String, required: true },
-  author: { type: String, required: true },
-  // ...other fields...
+  authors: [{ type: String }],
+  description: String,
+  image: String,
+  link: String,
 });
 
 const Book = model<BookDocument>('Book', bookSchema);

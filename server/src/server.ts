@@ -40,7 +40,10 @@ db.once('open', async () => {
   const { url } = await startStandaloneServer(server, {
     listen: { port: process.env.PORT ? Number(process.env.PORT) : 4000 },
     context: async ({ req }) => {
-      const user = getUserFromToken(req.headers.authorization);
+      // Get the token from the headers
+      const token = req.headers.authorization?.split(' ')[1];
+      // Decode the token and get the user
+      const user = token ? await getUserFromToken(token) : null;
       return { user };
     },
   });
